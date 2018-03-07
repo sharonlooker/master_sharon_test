@@ -32,8 +32,21 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
+  measure: count_complete {
+    type: count
+    filters: {
+      field: status
+      value: "complete"
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [id, users.last_name, users.first_name, users.id, order_items.count]
+  }
+
+  measure: completion_rate{
+    type: number
+    sql: 1.0 * ${count_complete}/nullif(${count},0) ;;
   }
 }
