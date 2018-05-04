@@ -21,4 +21,4 @@ explore: users {
   }
 }
 
-explore: order_items {}
+explore: orders {}

@@ -26,6 +26,12 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+  dimension: plus_minus {
+    type: string
+    sql: case when ${status} = 'Complete' THEN '+' ELSe '-' END ;;
+  }
+
+
   dimension: user_id {
     type: number
     # hidden: yes
