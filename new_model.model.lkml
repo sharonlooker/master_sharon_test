@@ -20,3 +20,5 @@ explore: users {
     sql_on: ${users.id}= ${orders.user_id} ;;
   }
 }
+
+explore: order_items {}
